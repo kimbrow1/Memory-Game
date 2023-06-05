@@ -21,3 +21,4 @@ colorsPicklist.splice(randomIndex, 1);
 
 console.log(color);
 }
+
