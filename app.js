@@ -1,7 +1,7 @@
 'use strict'
 
 let tileContainer = document.querySelector(".tiles");
-let colors = ["aqua", "aquamarine", "crimson", "blue", "dodgerblue", "gold", "greenyellow", "teal",];
+let colors = ["brown", "red", "crimson", "orange", "violet", "gold", "greenyellow", "teal",];
 let colorsPicklist = [...colors, ...colors];
 let tileTotal = colorsPicklist.length;
 
@@ -17,6 +17,11 @@ function buildTile(color){
     element.classList.add("tile");
     element.setAttribute("data-color", color)
     element,addEventListener("click", () => {
+        if (awaitingEndOfMove){
+            return;
+         }
+
+         element.style.backgroundColor = color;
 
     })
     
