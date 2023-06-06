@@ -16,7 +16,7 @@ function buildTile(color){
 
     element.classList.add("tile");
     element.setAttribute("data-color", color)
-    element,addEventListener(click, () => {
+    element,addEventListener("click", () => {
 
     })
     

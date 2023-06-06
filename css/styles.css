@@ -3,7 +3,7 @@ body {
 }
 
 .tiles {
-    margin: 48px auto;
+    margin: 105px auto;
     width: max-content;
     display: grid;
     grid-template-columns: repeat(4, 100px);
