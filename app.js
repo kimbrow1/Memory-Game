@@ -11,6 +11,12 @@ let revealCount = 0;
 let activeTile = null;
 let awaitingEndOfMove = false;
 
+function buildTile(color){
+    let element = document.createElement('div')
+
+    element.classList.add("tile")
+}
+
 
 // Build of tiles with random index
 for(let i = 0; i < tileTotal; i++) {
