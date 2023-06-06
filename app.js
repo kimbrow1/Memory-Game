@@ -28,12 +28,25 @@ function buildTile(color){
 
             return;
         }
+        let colorToMatch = activeTile.getAttribute("data-color");
+
+        if (colorToMatch === color){
+            awaitingEndOfMove= false;
+            activeTile = null;
+            revealCount += 2;
+        }
+
 
         awaitingEndOfMove = true;
 
         setTimeout(() => {
             element.style.backgroundColor = null;
             activeTile.style.backgroundColor = null;
+
+            awaitingEndOfMove = false;
+            activeTile= null;
+
+
 
         }, 1000);
 
