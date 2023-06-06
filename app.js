@@ -1,9 +1,9 @@
 'use strict'
 
-let tileContainer = document.querySelector(".tiles");
-let colors = ["brown", "red", "crimson", "orange", "violet", "gold", "greenyellow", "teal",];
-let colorsPicklist = [...colors, ...colors];
-let tileTotal = colorsPicklist.length;
+const tileContainer = document.querySelector(".tiles");
+const colors = ["brown", "red", "crimson", "orange", "violet", "gold", "greenyellow", "teal",];
+const colorsPicklist = [...colors, ...colors];
+const tileTotal = colorsPicklist.length;
 
 // Game State
 
@@ -12,12 +12,18 @@ let activeTile = null;
 let awaitingEndOfMove = false;
 
 function buildTile(color){
-    let element = document.createElement('div')
+    const element = document.createElement("div")
 
     element.classList.add("tile");
     element.setAttribute("data-color", color)
-    element,addEventListener("click", () => {
-        if (awaitingEndOfMove){
+    element.setAttribute("data-revealed", "false")
+
+
+    element.addEventListener("click", () => {
+
+        const revealed = element.getAttribute("data-revealed");
+
+        if (awaitingEndOfMove  || revealed === "true" || element === activeTile){
             return;
          }
 
@@ -28,19 +34,24 @@ function buildTile(color){
 
             return;
         }
-        let colorToMatch = activeTile.getAttribute("data-color");
+
+        constß colorToMatch = activeTile.getAttribute("data-color");
 
         if (colorToMatch === color){
-            awaitingEndOfMove= false;
+            activeTile.setAttribute("data-revealed", "true");
+            element.setAttribute("data-revealed", "true");
+            
             activeTile = null;
+            awaitingEndOfMove= false;
             revealCount += 2;
 
-            if (revealCount === tileContainer) {
-                alert("You Win!")
+            if (revealCount === tileTotal) {
+                alert("You Win!");
 
-                return;
+            }  
 
-            }
+             return;
+             
         }
 
 
@@ -52,9 +63,6 @@ function buildTile(color){
 
             awaitingEndOfMove = false;
             activeTile= null;
-
-
-
         }, 1000);
 
     });
