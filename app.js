@@ -16,6 +16,9 @@ function buildTile(color){
 
     element.classList.add("tile");
     element.setAttribute("data-color", color)
+    element,addEventListener(click, () => {
+
+    })
     
     return element;
 }
@@ -28,8 +31,6 @@ let color = colorsPicklist[randomIndex];
 let tile = buildTile(color);
 
 colorsPicklist.splice(randomIndex, 1);
-
-document.body.appendChild(tile);
-
+tileContainer.appendChild(tile);
 }
 
