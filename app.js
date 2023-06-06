@@ -23,7 +23,21 @@ function buildTile(color){
 
          element.style.backgroundColor = color;
 
-    })
+         if(!activeTile) {
+            activeTile = element;
+
+            return;
+        }
+
+        awaitingEndOfMove = true;
+
+        setTimeout(() => {
+            element.style.backgroundColor = null;
+            activeTile.style.backgroundColor = null;
+
+        }, 1000);
+
+    });
     
     return element;
 }
