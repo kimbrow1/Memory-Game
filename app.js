@@ -46,7 +46,7 @@ function buildTile(color){
             revealCount += 2;
 
             if (revealCount === tileTotal) {
-                alert("You Win!");
+                alert("You Win Refresh To Play Again!");
 
             }  
 
@@ -73,9 +73,9 @@ function buildTile(color){
 
 // Build of tiles with random index
 for(let i = 0; i < tileTotal; i++) {
-let randomIndex = Math.floor(Math.random() * colorsPicklist.length);
-let color = colorsPicklist[randomIndex];
-let tile = buildTile(color);
+const randomIndex = Math.floor(Math.random() * colorsPicklist.length);
+const color = colorsPicklist[randomIndex];
+const tile = buildTile(color);
 
 colorsPicklist.splice(randomIndex, 1);
 tileContainer.appendChild(tile);
