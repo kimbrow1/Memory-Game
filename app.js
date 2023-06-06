@@ -34,6 +34,13 @@ function buildTile(color){
             awaitingEndOfMove= false;
             activeTile = null;
             revealCount += 2;
+
+            if (revealCount === tileContainer) {
+                alert("You Win!")
+
+                return;
+
+            }
         }
 
 
