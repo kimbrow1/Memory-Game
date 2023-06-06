@@ -14,17 +14,22 @@ let awaitingEndOfMove = false;
 function buildTile(color){
     let element = document.createElement('div')
 
-    element.classList.add("tile")
+    element.classList.add("tile");
+    element.setAttribute("data-color", color)
+    
+    return element;
 }
 
 
 // Build of tiles with random index
 for(let i = 0; i < tileTotal; i++) {
 let randomIndex = Math.floor(Math.random() * colorsPicklist.length);
-let color = colorsPicklist[randomIndex] ;
+let color = colorsPicklist[randomIndex];
+let tile = buildTile(color);
 
 colorsPicklist.splice(randomIndex, 1);
 
-console.log(color);
+document.body.appendChild(tile);
+
 }
 
